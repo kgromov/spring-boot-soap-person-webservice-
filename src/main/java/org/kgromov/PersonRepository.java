@@ -21,18 +21,18 @@ public class PersonRepository {
         return persons.get(id);
     }
 
-    public Person create(Person item) {
-        item.setId(currentId++);
-        persons.put(item.getId(), item);
-        return item;
+    public Person create(Person person) {
+        person.setId(currentId++);
+        persons.put(person.getId(), person);
+        return person;
     }
 
-    public Person update(Person item) {
-        persons.put(item.getId(), item);
-        return item;
+    public Person update(Person person) {
+        persons.put(person.getId(), person);
+        return person;
     }
 
-    public void delete(Person item) {
-        persons.remove(item.getId());
+    public void delete(int personId) {
+        persons.remove(personId);
     }
 }

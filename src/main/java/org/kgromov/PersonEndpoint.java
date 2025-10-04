@@ -16,7 +16,7 @@ import com.example.personservice.Person;
 
 @Endpoint
 public class PersonEndpoint {
-    private static final String NAMESPACE_URI = "http://localhost:8080/ws/person-web-service";
+    private static final String NAMESPACE_URI = "http://example.com/personservice";
 
     private final PersonRepository repository;
 
@@ -37,9 +37,9 @@ public class PersonEndpoint {
     @ResponsePayload
     public CreatePersonResponse createPerson(@RequestPayload CreatePersonRequest request) {
         Person person = repository.create(request.getPerson());
-        var response = new CreatePersonResponse();
+        CreatePersonResponse response = new CreatePersonResponse();
         response.setPerson(person);
-        return person;
+        return response;
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updatePersonRequest")
